@@ -5,17 +5,17 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Lenotch</string>
+	<string>Notch</string>
 	<key>CFBundleExecutable</key>
-	<string>Lenotch</string>
+	<string>Notch</string>
 	<key>CFBundleIconFile</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.lephorx.Lenotch</string>
+	<string>io.github.minomat180.notch</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Lenotch</string>
+	<string>Notch</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -27,28 +27,28 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSAppleEventsUsageDescription</key>
-	<string>Lenotch reads what Spotify or Music is playing and controls playback from the notch.</string>
+	<string>Notch reads what Spotify or Music is playing and controls playback from the notch.</string>
 	<key>NSAudioCaptureUsageDescription</key>
-	<string>Lenotch listens to the sound your Mac is playing to animate the equalizer bars. Nothing is recorded or stored.</string>
+	<string>Notch listens to the sound your Mac is playing to animate the equalizer bars. Nothing is recorded or stored.</string>
 	<key>NSCalendarsFullAccessUsageDescription</key>
-	<string>Lenotch shows your upcoming events next to the music in the notch.</string>
+	<string>Notch shows your upcoming events next to the music in the notch.</string>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Lenotch shows your upcoming events next to the music in the notch.</string>
+	<string>Notch shows your upcoming events next to the music in the notch.</string>
 	<key>NSCameraReactionEffectGesturesEnabledDefault</key>
 	<false/>
 	<key>NSCameraUsageDescription</key>
-	<string>Lenotch shows your camera in the notch as a quick mirror. Nothing is recorded.</string>
+	<string>Notch shows your camera in the notch as a quick mirror. Nothing is recorded.</string>
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSLocationUsageDescription</key>
-	<string>Lenotch uses your location only when you choose Use my location, to show your local weather.</string>
+	<string>Notch uses your location only when you choose Use my location, to show your local weather.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Lenotch uses your location only when you choose Use my location, to show your local weather.</string>
+	<string>Notch uses your location only when you choose Use my location, to show your local weather.</string>
 	<key>NSRemindersFullAccessUsageDescription</key>
-	<string>Lenotch shows reminders from the lists you choose next to your calendar events in the notch.</string>
+	<string>Notch shows reminders from the lists you choose next to your calendar events in the notch.</string>
 	<key>SUFeedURL</key>
-	<string>https://github.com/lephorx/lenotch/releases/latest/download/appcast.xml</string>
+	<string>https://github.com/minomat180/lenotch/releases/latest/download/appcast.xml</string>
 	<key>SUPublicEDKey</key>
-	<string>zDhGeF8+LfLp027ZzYarC44+eo/Y9Vl80DEHv1oEjEQ=</string>
+	<string>EO1mrkR2R/++e2d029StZVXRZHlzwESF4dOay02ZXZ0=</string>
 </dict>
 </plist>

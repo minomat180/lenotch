@@ -2,7 +2,7 @@
 """Release notes for a tag: release-notes/<tag>.md if it exists, otherwise the commit
 subjects since the previous tag (internal ones left out).
 
-Writes build/release-notes.md (GitHub release) and build/Lenotch.html, which
+Writes build/release-notes.md (GitHub release) and build/Notch.html, which
 generate_appcast --embed-release-notes puts into the Sparkle update dialog.
 
     scripts/release_notes.py v2.8
@@ -48,7 +48,7 @@ def main():
     # **bold** in the notes becomes <strong> in Sparkle's update dialog.
     bold = re.compile(r"[*][*](.+?)[*][*]")
     lis = "".join("<li>" + bold.sub(r"<strong>\1</strong>", html.escape(item)) + "</li>" for item in items)
-    (out / "Lenotch.html").write_text(f"<h2>What's new in Lenotch {html.escape(tag.lstrip('v'))}</h2><ul>{lis}</ul>\n")
+    (out / "Notch.html").write_text(f"<h2>What's new in Notch {html.escape(tag.lstrip('v'))}</h2><ul>{lis}</ul>\n")
     print(markdown)
 
 

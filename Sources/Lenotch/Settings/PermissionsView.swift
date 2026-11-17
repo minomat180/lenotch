@@ -30,7 +30,7 @@ struct PermissionsView: View {
                 allow: permissions.enableAudioVisualizer,
                 pane: "Privacy_AudioCapture")
             row(symbol: "accessibility", title: "Accessibility",
-                detail: "Volume and brightness keys show only Lenotch's indicator.",
+                detail: "Volume and brightness keys show only Notch's indicator.",
                 status: permissions.accessibility,
                 allow: permissions.requestAccessibility,
                 pane: "Privacy_Accessibility")

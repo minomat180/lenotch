@@ -75,7 +75,7 @@ struct AIUsageSettings: View {
                 }
             }
             .padding(.horizontal, 20)
-            Text("Configs are JSON files in the Providers folder (see docs/provider-config.md). Sign-ins are read from each tool; Lenotch never stores a login.")
+            Text("Configs are JSON files in the Providers folder (see docs/provider-config.md). Sign-ins are read from each tool; Notch never stores a login.")
                 .font(.system(size: 10))
                 .foregroundStyle(.secondary)
                 .padding(.horizontal, 20)
@@ -387,7 +387,7 @@ private struct DeepSeekKeyEditor: View {
             Text("DeepSeek").font(.system(size: 15, weight: .semibold))
 
             Text("Account").font(.system(size: 12, weight: .semibold))
-            Text("Sign in to the DeepSeek Platform to see your balance, total spend, and the last 30 days of tokens, requests and cost. Lenotch keeps the session in your keychain.")
+            Text("Sign in to the DeepSeek Platform to see your balance, total spend, and the last 30 days of tokens, requests and cost. Notch keeps the session in your keychain.")
                 .font(.system(size: 11))
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
@@ -421,7 +421,7 @@ private struct DeepSeekKeyEditor: View {
             Text("API Key").font(.system(size: 12, weight: .semibold))
             Text(signedIn
                  ? "Not needed while you're signed in."
-                 : "Or create one at platform.deepseek.com → API keys. With a key Lenotch can only read your balance.")
+                 : "Or create one at platform.deepseek.com → API keys. With a key Notch can only read your balance.")
                 .font(.system(size: 11))
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
@@ -487,7 +487,7 @@ private struct CopilotAccountPicker: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Copilot Account").font(.system(size: 15, weight: .semibold))
-            Text("Lenotch reads Copilot through the GitHub CLI. If your Copilot Business seat is on another account, add it with `gh auth login` in Terminal and choose it here. `gh auth switch` still controls which account gh itself uses.")
+            Text("Notch reads Copilot through the GitHub CLI. If your Copilot Business seat is on another account, add it with `gh auth login` in Terminal and choose it here. `gh auth switch` still controls which account gh itself uses.")
                 .font(.system(size: 11))
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)

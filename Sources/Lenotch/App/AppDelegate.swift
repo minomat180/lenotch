@@ -154,7 +154,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func showSettings() {
-        windows.show(id: "settings", title: "Lenotch Settings") {
+        windows.show(id: "settings", title: "Notch Settings") {
             SettingsView(settings: settings, shelf: shelf, permissions: permissions,
                          updater: updater,
                          showOnboarding: { [weak self] in self?.showOnboarding() },
@@ -169,7 +169,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func showOnboarding() {
         // Floating, so it stays in view while macOS permission prompts come and go.
-        windows.show(id: "onboarding", title: "Welcome to Lenotch", floating: true) {
+        windows.show(id: "onboarding", title: "Welcome to Notch", floating: true) {
             OnboardingView(settings: settings, permissions: permissions,
                            showAppearancePreview: { [weak self] in self?.notches.values.forEach { $0.showAppearancePreview() } },
                            hideAppearancePreview: { [weak self] in self?.notches.values.forEach { $0.hideAppearancePreview() } }) { [weak self] in

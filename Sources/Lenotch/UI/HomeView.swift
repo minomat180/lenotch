@@ -13,7 +13,7 @@ struct HomeView: View {
             HStack(spacing: 14) {
                 AppLogo(height: 46, glass: glass, color: glass ? nil : model.accentColor)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Lenotch")
+                    Text("Notch")
                         .font(.system(size: 20, weight: .bold))
                         .foregroundStyle(.white)
                     TimelineView(.everyMinute) { context in

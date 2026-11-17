@@ -24,7 +24,7 @@ struct PermissionToggle: View {
                     }
                 }))
             if isEnabled, status == .denied {
-                Text("Access was denied — allow Lenotch in System Settings, then come back.")
+                Text("Access was denied — allow Notch in System Settings, then come back.")
                     .font(.system(size: 11))
                     .foregroundStyle(.secondary)
             }

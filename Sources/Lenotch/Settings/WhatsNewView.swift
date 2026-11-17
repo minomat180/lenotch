@@ -11,7 +11,7 @@ struct WhatsNewView: View {
     @State private var failed = false
 
     private var releaseURL: URL {
-        URL(string: "https://github.com/lephorx/lenotch/releases/tag/v\(version)")!
+        URL(string: "https://github.com/minomat180/lenotch/releases/tag/v\(version)")!
     }
 
     var body: some View {
@@ -20,7 +20,7 @@ struct WhatsNewView: View {
                 .padding(.top, 34)
             VStack(spacing: 4) {
                 Text("What's New").font(.system(size: 22, weight: .bold))
-                Text("Lenotch \(version)").font(.system(size: 13)).foregroundStyle(.secondary)
+                Text("Notch \(version)").font(.system(size: 13)).foregroundStyle(.secondary)
             }
             Group {
                 if let items {
@@ -64,7 +64,7 @@ struct WhatsNewView: View {
     }
 
     private func load() async {
-        let api = URL(string: "https://api.github.com/repos/lephorx/lenotch/releases/tags/v\(version)")!
+        let api = URL(string: "https://api.github.com/repos/minomat180/lenotch/releases/tags/v\(version)")!
         do {
             var request = URLRequest(url: api, timeoutInterval: 10)
             request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")

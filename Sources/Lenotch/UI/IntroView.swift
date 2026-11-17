@@ -20,7 +20,7 @@ struct IntroView: View {
             Color.clear.frame(height: notchHeight)
             HStack(spacing: 14) {
                 logo
-                Text("Lenotch")
+                Text("Notch")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                     .opacity(showTitle ? 1 : 0)

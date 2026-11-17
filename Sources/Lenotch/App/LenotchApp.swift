@@ -10,7 +10,7 @@ struct LenotchApp: App {
                         checkForUpdates: appDelegate.checkForUpdates)
         } label: {
             Image(nsImage: LogoShape.menuBarImage())
-                .accessibilityLabel("Lenotch")
+                .accessibilityLabel("Notch")
         }
     }
 }
@@ -28,7 +28,7 @@ private struct MenuContent: View {
         Button("Check for Updates…", action: checkForUpdates)
         Divider()
         Button("Hide Menu Bar Icon") { settings.showMenuBarIcon = false }
-        Button("Quit Lenotch") { NSApp.terminate(nil) }
+        Button("Quit Notch") { NSApp.terminate(nil) }
             .keyboardShortcut("q")
     }
 }
