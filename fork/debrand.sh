@@ -50,6 +50,11 @@ find Sources -name '*.swift' -print0 | xargs -0 perl -pi -e '
 if grep -rnE '(Text|Button|title:|Label)\("[^"]*Lenotch' Sources; then fail "user-visible 'Lenotch' strings left (above)"; fi
 ! grep -rn 'lephorx/lenotch' Sources || fail "upstream URLs left in Sources (above)"
 
+# Release notes become the GitHub release body, which the What's New window and
+# Sparkle's update dialog show.
+perl -pi -e 's{(?<![\w.])Lenotch(?![\w])(?!\.exe)}{$ENV{APP_NAME}}g' release-notes/*.md
+! grep -rn 'Lenotch[^.]\|lephor' release-notes || fail "release notes still mention upstream (above)"
+
 # 5. Build and packaging: app bundle, DMG and release-notes names.
 edit build.sh 's{Lenotch\.app}{$ENV{APP_NAME}.app}g; s{Lenotch\.dmg}{$ENV{APP_NAME}.dmg}g; s{"Lenotch Installer"}{"$ENV{APP_NAME} Installer"}g' "build/$APP_NAME.app"
 edit scripts/style_dmg.applescript 's{/Lenotch\.app/}{/$ENV{APP_NAME}.app/}g' "/$APP_NAME.app/"
