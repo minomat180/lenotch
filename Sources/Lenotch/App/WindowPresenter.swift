@@ -13,13 +13,27 @@ final class WindowPresenter {
             bringToFront(window)
             return
         }
-        let controller = NSHostingController(rootView: content())
-        controller.sizingOptions = .preferredContentSize
+        // The window follows its content's size, but not through Auto Layout
+        // (`sizingOptions = .preferredContentSize`): with the macOS 26 SDK every window
+        // resize invalidates the hosting view's safe area corners, which asks for another
+        // constraints pass, which resizes the window again, until AppKit throws (on
+        // onboarding's Get Started). Resizing on the next run loop turn breaks the cycle.
+        // Fork: also in fork/overlay/, so upstream syncs keep it; drop it there once
+        // upstream fixes the crash.
+        weak var sizedWindow: NSWindow?
+        let controller = NSHostingController(rootView: content()
+            .fixedSize()
+            .onGeometryChange(for: CGSize.self) { $0.size } action: { size in
+                DispatchQueue.main.async { sizedWindow?.fitContent(size) }
+            })
+        controller.sizingOptions = []
         let window = NSWindow(contentViewController: controller)
+        sizedWindow = window
         window.title = title
         window.styleMask = [.titled, .closable, .fullSizeContentView]
         window.titlebarAppearsTransparent = true
         window.isReleasedWhenClosed = false
+        window.fitContent(controller.sizeThatFits(in: .zero))
         window.center()
         if floating { window.level = .floating }
         windows[id] = window
@@ -54,5 +68,15 @@ final class WindowPresenter {
     private func bringToFront(_ window: NSWindow) {
         NSApp.activate(ignoringOtherApps: true)
         window.makeKeyAndOrderFront(nil)
+    }
+}
+
+private extension NSWindow {
+    /// Sizes the window so `size` fits below the title bar, keeping its top edge in place.
+    func fitContent(_ size: CGSize) {
+        var newFrame = frameRect(forContentRect: CGRect(origin: .zero, size: size))
+        newFrame.origin = CGPoint(x: frame.minX, y: frame.maxY - newFrame.height)
+        guard newFrame != frame else { return }
+        setFrame(newFrame, display: true)
     }
 }
