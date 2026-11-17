@@ -88,7 +88,7 @@ final class AudioVisualizer: @unchecked Sendable {
     private func startTap() throws {
         let description = CATapDescription(stereoGlobalTapButExcludeProcesses: [])
         description.uuid = UUID()
-        description.name = "Lenotch Visualizer"
+        description.name = "Notch Visualizer"
         description.muteBehavior = .unmuted
         description.isPrivate = true
         try check(AudioHardwareCreateProcessTap(description, &tapID), "create tap")
@@ -99,7 +99,7 @@ final class AudioVisualizer: @unchecked Sendable {
 
         let outputUID = try defaultOutputDeviceUID()
         let aggregate: [String: Any] = [
-            kAudioAggregateDeviceNameKey: "Lenotch Visualizer",
+            kAudioAggregateDeviceNameKey: "Notch Visualizer",
             kAudioAggregateDeviceUIDKey: UUID().uuidString,
             kAudioAggregateDeviceMainSubDeviceKey: outputUID,
             kAudioAggregateDeviceIsPrivateKey: true,

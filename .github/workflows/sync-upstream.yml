@@ -1,0 +1,34 @@
+name: Sync upstream
+
+# Daily: merge lephorx/lenotch, strip the branding again (fork/debrand.sh), push,
+# and build. New upstream version tags become fork releases, which the app's
+# Sparkle updater picks up.
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+concurrency: sync-upstream
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write  # to start fork-build.yml
+    steps:
+      # GITHUB_TOKEN can't push commits that change workflow files, which upstream
+      # merges sometimes do. A SYNC_TOKEN secret (PAT with repo + workflow scopes)
+      # avoids that; without it such a sync fails and can be run locally instead.
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.SYNC_TOKEN || github.token }}
+
+      - name: Merge upstream and debrand
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          fork/sync-upstream.sh --push

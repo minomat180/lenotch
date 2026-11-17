@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Builds build/Lenotch.app.
+# Builds build/Notch.app.
 #   ./build.sh           build only
 #   ./build.sh run       build and (re)launch from build/
 #   ./build.sh install   build, copy to /Applications and launch
-#   ./build.sh dmg       build and package build/Lenotch.dmg
+#   ./build.sh dmg       build and package build/Notch.dmg
 #
 # Environment:
 #   CONFIG=debug|release      build configuration (default release)
@@ -14,7 +14,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 CONFIG="${CONFIG:-release}"
-APP="build/Lenotch.app"
+APP="build/Notch.app"
 
 ARCH_FLAGS=()
 for arch in ${ARCHS:-}; do ARCH_FLAGS+=(--arch "$arch"); done
@@ -78,9 +78,9 @@ case "${1:-}" in
     ;;
   install)
     quit_running
-    rm -rf /Applications/Lenotch.app /Applications/LephorNotch.app
+    rm -rf /Applications/Notch.app /Applications/LephorNotch.app
     cp -R "$APP" /Applications/
-    open /Applications/Lenotch.app
+    open /Applications/Notch.app
     echo "Installed to /Applications"
     ;;
   dmg)
@@ -88,20 +88,20 @@ case "${1:-}" in
       echo "create-dmg is required to package the installer (brew install create-dmg)" >&2
       exit 1
     fi
-    DMG="build/Lenotch.dmg"
+    DMG="build/Notch.dmg"
     STAGE="$(mktemp -d)"
     MOUNT="$(mktemp -d)"
     trap 'hdiutil detach "$MOUNT" -quiet 2>/dev/null || true; rm -rf "$STAGE" "$MOUNT"' EXIT
     cp -R "$APP" "$STAGE/"
     rm -f "$DMG"
     create-dmg \
-      --volname "Lenotch Installer" \
+      --volname "Notch Installer" \
       --window-pos 160 120 \
       --window-size 600 340 \
       --text-size 14 \
       --icon-size 112 \
-      --icon "Lenotch.app" 155 165 \
-      --hide-extension "Lenotch.app" \
+      --icon "Notch.app" 155 165 \
+      --hide-extension "Notch.app" \
       --app-drop-link 445 165 \
       --skip-finalize \
       "$DMG" "$STAGE"

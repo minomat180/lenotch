@@ -279,7 +279,7 @@ private struct GeneralSettings: View {
             } header: {
                 Text("Menu bar")
             } footer: {
-                Text("When hidden, open Settings with the gear in the notch, or by opening Lenotch again from Applications or Spotlight.")
+                Text("When hidden, open Settings with the gear in the notch, or by opening Notch again from Applications or Spotlight.")
             }
             Section("Startup & updates") {
                 Toggle("Launch at login", isOn: $launchAtLogin)

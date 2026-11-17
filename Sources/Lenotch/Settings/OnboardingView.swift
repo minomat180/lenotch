@@ -133,7 +133,7 @@ struct OnboardingView: View {
     }
 }
 
-/// The first thing a new user sees: the logo drops in, "Lenotch" slides in beside it
+/// The first thing a new user sees: the logo drops in, "Notch" slides in beside it
 /// and a shine sweeps across, like the intro in the notch, then Get Started.
 private struct WelcomeScreen: View {
     let getStarted: () -> Void
@@ -156,7 +156,7 @@ private struct WelcomeScreen: View {
                                center: .center, startRadius: 0, endRadius: 220)
                 HStack(spacing: 18) {
                     logo
-                    Text("Lenotch")
+                    Text("Notch")
                         .font(.system(size: 44, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
                         .opacity(showTitle ? 1 : 0)

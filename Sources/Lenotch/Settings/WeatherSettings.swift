@@ -50,7 +50,7 @@ struct WeatherSection: View {
                 }
             }
             if locator?.locationDenied == true {
-                Text("Location access is off — allow Lenotch in System Settings → Privacy & Security → Location Services.")
+                Text("Location access is off — allow Notch in System Settings → Privacy & Security → Location Services.")
                     .font(.system(size: 11))
                     .foregroundStyle(.secondary)
             }

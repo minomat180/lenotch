@@ -19,7 +19,7 @@ struct VolumeBrightnessSettings: View {
                 permissions.accessibilityToggle("Hide the macOS indicator", isEnabled: $settings.hideSystemIndicator)
                     .disabled(!settings.showVolumeIndicator && !settings.showBrightnessIndicator)
             } footer: {
-                Text("Needs Accessibility, so Lenotch can handle the volume and brightness keys itself and only its own indicator shows.")
+                Text("Needs Accessibility, so Notch can handle the volume and brightness keys itself and only its own indicator shows.")
             }
         }
         .formStyle(.grouped)

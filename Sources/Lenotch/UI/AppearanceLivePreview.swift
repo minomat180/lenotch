@@ -15,7 +15,7 @@ struct AppearanceLivePreview: View {
                     LogoShape().fill(.white)
                         .frame(width: 54 * LogoShape.aspectRatio, height: 54)
                 }
-                Text("Lenotch")
+                Text("Notch")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
             }
