@@ -35,8 +35,10 @@ edit $PLIST 's{(<key>CFBundleName</key>\s*<string>)[^<]*}{$1$ENV{APP_NAME}}' "<s
 edit $PLIST 's{(<key>CFBundleIdentifier</key>\s*<string>)[^<]*}{$1$ENV{BUNDLE_ID}}' "<string>$BUNDLE_ID</string>"
 edit $PLIST 's{(<key>SUFeedURL</key>\s*<string>)[^<]*}{$1https://github.com/$ENV{FORK_REPO}/releases/latest/download/appcast.xml}' "github.com/$FORK_REPO/releases"
 edit $PLIST 's{(<key>SUPublicEDKey</key>\s*<string>)[^<]*}{$1$ENV{SPARKLE_PUBLIC_KEY}}' "$SPARKLE_PUBLIC_KEY"
-perl -pi -e 's{(<string>[^<]*)\bLenotch\b}{$1$ENV{APP_NAME}}g' $PLIST
-! grep -q 'Lenotch\|lephor' $PLIST || fail "$PLIST still mentions upstream"
+# Permission prompts start with the app's name. (CFBundleExecutable stays Lenotch: the binary's name.)
+perl -pi -e 's{<string>Lenotch }{<string>$ENV{APP_NAME} }g' $PLIST
+grep -Pzq '<key>CFBundleExecutable</key>\s*<string>Lenotch</string>' $PLIST || fail "$PLIST: CFBundleExecutable isn't Lenotch"
+! grep -v '<string>Lenotch</string>' $PLIST | grep -q 'Lenotch\|lephor' || fail "$PLIST still mentions upstream"
 
 # 4. User-visible Swift strings. Only string literals are touched, and not internal
 #    ones (logs, queue labels, keychain services, folders, plist keys, headers).
