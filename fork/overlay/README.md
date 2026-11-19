@@ -5,12 +5,12 @@
   <img alt="lenotch" src="docs/assets/banner-light.svg" width="100%">
 </picture>
 
-# Notch
+# lenotch
 
 ### Debranded MacBook notch app, synced from upstream
 
-**Music, a file shelf, a timer and volume and brightness indicators in the black area
-around your MacBook's camera: lephorx's lenotch without its branding.**
+**Ships as Notch: music, a file shelf, a timer and volume and brightness indicators in the
+black area around your MacBook's camera, from lephorx's lenotch without its branding.**
 
 [![Build](https://img.shields.io/github/actions/workflow/status/minomat180/lenotch/fork-build.yml?branch=main&style=flat-square&label=build)](https://github.com/minomat180/lenotch/actions/workflows/fork-build.yml)
 [![Release](https://img.shields.io/github/v/release/minomat180/lenotch?style=flat-square&color=2dd4bf)](https://github.com/minomat180/lenotch/releases/latest)
@@ -18,9 +18,9 @@ around your MacBook's camera: lephorx's lenotch without its branding.**
 [![Swift 6](https://img.shields.io/badge/Swift-6-2dd4bf?style=flat-square&logo=swift&logoColor=white)](Package.swift)
 [![Upstream](https://img.shields.io/badge/upstream-lephorx%2Flenotch-2dd4bf?style=flat-square&logo=github)](https://github.com/lephorx/lenotch)
 
-[Quick start](#quick-start) · [How it works](#how-it-works) · [Limits](#limits) · [Credits](#credits) · [Latest release](https://github.com/minomat180/lenotch/releases/latest)
+[Quick start](#quick-start) · [How it works](#how-it-works) · [Limits](#limits) · [Credits](#credits) · [License](#license) · [Latest release](https://github.com/minomat180/lenotch/releases/latest)
 
-<img src="docs/demo.gif" width="900" alt="The notch going from a playing-music pill to the open player, the file shelf, the volume indicator and a timer starting">
+<img src="docs/demo.gif" width="900" alt="The open player, then the file shelf, the volume indicator, a timer starting and the notch closed with music playing">
 
 <sub>Captured from the running app on a MacBook, with generated demo audio and demo files.</sub>
 
@@ -36,7 +36,7 @@ sync with upstream.
 - **Now Playing lives in the notch.** While music plays, the closed notch shows the album
   art and moving equalizer bars; hovering or clicking opens a player with a seekable progress bar,
   play/pause and skip.
-- **A shelf, a timer and indicators.** Files dropped on the notch stay there to be dragged
+- **Files, a timer and system indicators live there too.** Files dropped on the notch stay there to be dragged
   out again or sent with AirDrop. Volume and brightness changes and a running timer show
   in the notch too.
 - **The rebrand survives upstream updates.** `fork/debrand.sh` rewrites the tree after
@@ -47,7 +47,7 @@ sync with upstream.
 - **Releases follow upstream.** A daily GitHub Action merges `lephorx/lenotch`, runs the
   debrand script and pushes. When upstream tags a version, the fork tags the same version
   and builds a signed DMG and a Sparkle appcast.
-- **A fix for a crash in upstream's code.** Built against the macOS 26 SDK, the
+- **A macOS 26 crash in upstream's code is fixed.** Built against the macOS 26 SDK, the
   first-launch window crashed on Get Started with "more Update Constraints in Window
   passes than there are views in the window". The fix sizes the window on the next
   run-loop turn instead of through Auto Layout
@@ -58,7 +58,7 @@ name, glyph, icon and that crash fix, everything in the app is upstream's work.
 
 ## Quick start
 
-| | Requirement |
+| Use | Requirement |
 | --- | --- |
 | Run | macOS 14 or later, Apple silicon or Intel (the DMG is universal) |
 | Build | Xcode 26 with Swift 6; `brew install create-dmg` for the DMG |
@@ -137,7 +137,8 @@ content and resizes outside the constraints pass.
 The app (Now Playing, shelf, calendar, weather, timer, AI usage rings, HUDs and the rest)
 is [lephorx/lenotch](https://github.com/lephorx/lenotch). Now Playing uses
 [mediaremote-adapter](https://github.com/ungive/mediaremote-adapter) (BSD-3-Clause,
-`Vendor/MediaRemoteAdapter`).
+`Vendor/MediaRemoteAdapter`). Two AI provider glyphs come from CodenotchGlyphs (MIT,
+`Vendor/CodenotchGlyphs`).
 
 ## License
 
