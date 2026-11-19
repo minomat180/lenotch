@@ -27,7 +27,7 @@ build with the old branding.
 **Releases that follow upstream.** A daily GitHub Action merges `lephorx/lenotch`, runs the
 debrand script and pushes. When upstream tags a new version, the fork tags the same version
 and builds a signed DMG and a Sparkle appcast. An installed copy finds the update through
-Sparkle: automatically if update checks are on, otherwise through **Check for Updates…**.
+Sparkle: automatically if update checks are on, otherwise through the menu bar icon's **Check for Updates…**
 
 **A fix for a crash in upstream's code.** The fork's first release, built from upstream's
 code against the macOS 26 SDK, crashed as soon as you pressed Get Started in the
@@ -90,7 +90,7 @@ change to one of them is overwritten without warning.
 
 ## Limits
 
-- Not notarized, so the first launch needs the `xattr` step above.
+- Not notarized, so the first launch needs one of the two steps under Install.
 - The Windows port that upstream also ships is removed here.
 - The executable inside `Notch.app` is still named `Lenotch`. Only user-facing names change.
 - GitHub's built-in Actions token can't push commits that change workflow files. When an
