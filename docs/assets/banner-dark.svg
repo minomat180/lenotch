@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" width="1280" height="320" role="img" aria-label="lenotch">
+  <rect x="0.5" y="0.5" width="1279" height="319" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <rect x="80" y="96" width="56" height="6" fill="#2dd4bf"/>
+  <text x="80" y="196" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="700" font-size="84" fill="#e6edf3">lenotch</text>
+  <text x="80" y="248" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="400" font-size="24" fill="#8b949e">Debranded MacBook notch app, synced from upstream</text>
+  <path d="M900 96 H1200" stroke="#30363d" stroke-width="2"/>
+  <path d="M936 96 A14 14 0 0 1 950 110 V170 A30 30 0 0 0 980 200 H1120 A30 30 0 0 0 1150 170 V110 A14 14 0 0 1 1164 96 Z" fill="#30363d"/>
+  <rect x="1022.1" y="140.8" width="14.5" height="35.2" rx="7.2" fill="#2dd4bf"/><rect x="1042.8" y="112.0" width="14.5" height="64.0" rx="7.2" fill="#2dd4bf"/><rect x="1063.4" y="128.0" width="14.5" height="48.0" rx="7.2" fill="#2dd4bf"/>
+</svg>
